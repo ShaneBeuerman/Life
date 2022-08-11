@@ -52,6 +52,7 @@ public class main {
             rectangles on the GUI. If the array contains a 1, then
             it is alive. If the array contains a 0, then it is dead.
         */
+        @Override
         protected void paintComponent(Graphics g) {
             g.setColor(t);
             for (int i = 0; i < 50; i++) {
@@ -107,7 +108,7 @@ public class main {
          these four rules every time it is called.
         */
         public static int[][] update(int[][] board) {
-            int totalNeighbors = 0;
+            int totalNeighbors;
             boolean dead;
             int[][] newBoard = new int[50][50];
             for (int i = 0; i < 50; i++) {
@@ -138,10 +139,8 @@ public class main {
                     // totalNeighbors is reset to zero;
                     if (dead) {
                         newBoard[i][j] = 0;
-                        totalNeighbors = 0;
                     } else {
                         newBoard[i][j] = 1;
-                        totalNeighbors = 0;
                     }
 
                 }
